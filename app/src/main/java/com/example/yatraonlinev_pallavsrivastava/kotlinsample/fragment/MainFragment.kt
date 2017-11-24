@@ -10,9 +10,7 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import com.example.yatraonlinev_pallavsrivastava.kotlinsample.R
 
-/**
- * Created by YATRAONLINE\v-pallav.srivastava on 23/11/17.
- */
+
 class  MainFragment : Fragment() {
 
     @BindView(R.id.rv_notes_list)
