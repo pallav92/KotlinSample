@@ -4,11 +4,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import butterknife.BindView
 import com.example.yatraonlinev_pallavsrivastava.kotlinsample.R
 import com.example.yatraonlinev_pallavsrivastava.kotlinsample.model.Note
-
+import kotlinx.android.synthetic.main.layout_note_item.view.*
 
 class NotelistAdapter(val items: List<Note>, val listener: (Note) -> Unit) : RecyclerView.Adapter<NotelistAdapter.MyViewHolder>() {
 
@@ -19,6 +17,7 @@ class NotelistAdapter(val items: List<Note>, val listener: (Note) -> Unit) : Rec
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.bind(items[position], listener)
+
     }
 
     override fun getItemCount(): Int {
@@ -27,16 +26,10 @@ class NotelistAdapter(val items: List<Note>, val listener: (Note) -> Unit) : Rec
 
 
     class MyViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
-        @BindView(R.id.tv_header)
-        lateinit var tvHeader: TextView
-
-        @BindView(R.id.tv_note_preview)
-        lateinit var tvNotePreview: TextView
 
         fun bind(note: Note, listener: (Note) -> Unit) = with(itemView) {
-            tvHeader.setText(note.name)
-            tvNotePreview.setText(note.message)
-
+            itemView.tv_header.setText(note.name)
+            itemView.tv_note_preview.setText(note.message)
             setOnClickListener { listener(note) }
         }
 
