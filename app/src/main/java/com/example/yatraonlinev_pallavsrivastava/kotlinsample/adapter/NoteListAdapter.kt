@@ -30,6 +30,7 @@ class NotelistAdapter(val items: List<Note>, val listener: (Note) -> Unit) : Rec
         fun bind(note: Note, listener: (Note) -> Unit) = with(itemView) {
             itemView.tv_header.setText(note.name)
             itemView.tv_note_preview.setText(note.message)
+            itemView.iv_note_image.setImageDrawable(resources.getDrawable(R.drawable.ic_launcher_background))
             setOnClickListener { listener(note) }
         }
 
